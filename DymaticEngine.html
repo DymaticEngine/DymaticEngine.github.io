@@ -11,6 +11,11 @@
 </head>
 
 <body onload="OnCreateFunction()" id="bodyelement" style="background-color: #292929">
+
+<div class="overlay faded pagechangediv" id="startupdiv"></div>
+	
+<div class="overlay hidden pagechangediv" id="pagefadediv"></div>
+	
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navigation_id">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent1">
@@ -34,15 +39,25 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap-4.4.1.js"></script>
 
-<div class="centerContainer MainImageContainerDiv">
+<div class="HomeMainTitleContainer">
+<div class="HomeMainTitleContainerHider" width="100px">
+	<video class="HomeMainTitleVideo" playsinline autoplay muted loop preload>
+    <source src="Videos/MainHomeBackgroundLoop2.mp4" type"video/mp4"></video>
+</div>
+<div class="centerContainer MainImageContainerDiv" style="width: 100%; height: 100%; margin-top: 50px;">
 <img src="Icons/DymaticLogoCircleOutline.png" class="DymaticMainCircleLogo FadeInAnimationNormal" alt="Dymatic Logo In Circle">
 <img src="Icons/DymaticLogoCircleMain.png" class="DymaticMainCircleLogo FadeInAnimationLate" style="position:absolute" alt="Dymatic Logo In Circle">
 </div>
+</div>
 
+	
 <h1 class="DymaticMainTitleText FadeInAnimationEarly centerText">DYMATIC ENGINE</h1>
 <h1 class="DymaticSubTitleText FadeInAnimationEarly centerText">A GAME DESIGN TOOL FROM THE FUTURE</h1>
-<h2 class="FadeInAnimationLate">Hello World!</h2>
-<h2 class="FadeInAnimationNormal">Hello World!</h2>
+<br>
+<br>
+<button class="BigSubmitButton FadeInAnimationLate centerImage" type="submit">GET STARTED NOW</button>
+<!--<h2 class="FadeInAnimationLate">Hello World!</h2>
+<h2 class="FadeInAnimationNormal">Hello World!</h2>-->
 	
 <script>
 	function OnCreateFunction()
@@ -50,6 +65,20 @@
 		checkAnimation();
 		setupIcons();
 		checkCookie();
+		
+		var $elem = $(".HomeLoadOverlay");
+
+    	// If the animation has already been started
+    	if (!$elem.hasClass("hide")) {$elem.addClass("hide")};
+		
+		PageFade();
+	}
+	
+	function PageFade(){
+  		startupdiv.classList.remove("hidden");
+  		setTimeout(function(){startupdiv.classList.add("faded");}, 25);
+  		setTimeout(function(){startupdiv.classList.remove("faded");}, 350);
+  		setTimeout(function(){startupdiv.classList.add("hidden");}, 550);
 	}
 </script>
 	
