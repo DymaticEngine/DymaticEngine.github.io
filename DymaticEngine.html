@@ -45,8 +45,10 @@
     <source src="Videos/MainHomeBackgroundLoop.mp4" type"video/mp4"></video>
 </div>
 <div class="centerContainer MainImageContainerDiv" style="width: 100%; height: 100%; margin-top: 50px;">
-<img src="Icons/DymaticLogoCircleOutline.png" class="DymaticMainCircleLogo FadeInAnimationNormal" alt="Dymatic Logo In Circle">
-<img src="Icons/DymaticLogoCircleMain.png" class="DymaticMainCircleLogo FadeInAnimationLate" style="position:absolute" alt="Dymatic Logo In Circle">
+<img src="Icons/DymaticLogoCircleOutline.png" class="DymaticMainCircleLogo FadeInAnimationNormal" alt="Dymatic Logo In Circle" id="MainCircleLogoOuter">
+<img src="Icons/DymaticLogoCircleMain.png" class="DymaticMainCircleLogo FadeInAnimationLate" style="position:absolute" alt="Dymatic Logo In Circle" id="MainCircleLogoInner">
+<img src="Images/ShockwaveEffect.png" class="LogoPulseAnimation">
+<img src="Images/ShockwaveEffect.png" class="LogoPulseAnimation" style="animation-delay: 0.2s">
 </div>
 </div>
 
@@ -54,12 +56,14 @@
 <h1 class="DymaticMainTitleText FadeInAnimationEarly centerText">DYMATIC ENGINE</h1>
 <h1 class="DymaticSubTitleText FadeInAnimationEarly centerText">A GAME DESIGN TOOL FROM THE FUTURE</h1>
 <br>
+<p class="centerText">Click the Dymatic Logo to Get Started</p>
 <br>
 <button class="BigSubmitButton FadeInAnimationLate centerImage" type="submit">GET STARTED NOW</button>
 <!--<h2 class="FadeInAnimationLate">Hello World!</h2>
 <h2 class="FadeInAnimationNormal">Hello World!</h2>-->
 	
 <script>
+	
 	function OnCreateFunction()
 	{
 		checkAnimation();
@@ -85,6 +89,29 @@
 <script src="DymaticEngine.js">
 </script>
 
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD2vvDhXw6t9egpK87KRaqb5tMIZanxuhY",
+    authDomain: "dymaticengine.firebaseapp.com",
+    projectId: "dymaticengine",
+    storageBucket: "dymaticengine.appspot.com",
+    messagingSenderId: "816690983097",
+    appId: "1:816690983097:web:567c9c64a3f7a683b4eb68",
+    measurementId: "G-SHT96SVRCX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </body>
 
 <meta charset="utf-8">
