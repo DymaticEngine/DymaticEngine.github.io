@@ -62,6 +62,9 @@
 <!--<h2 class="FadeInAnimationLate">Hello World!</h2>
 <h2 class="FadeInAnimationNormal">Hello World!</h2>-->
 	
+<progress value="0" max="100" id="uploader">0%</progress>
+<input type="file" value="upload" id="fileButton">
+	
 <script>
 	
 	function OnCreateFunction()
@@ -76,6 +79,8 @@
     	if (!$elem.hasClass("hide")) {$elem.addClass("hide")};
 		
 		PageFade();
+		
+		FirebaseDataRead();
 	}
 	
 	function PageFade(){
@@ -111,6 +116,39 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+	
+	var uploader = document.getElementById("uploader");
+	var fileButton = document.getElementById("fileButton");
+	
+	fileButton.addEventListener('change', function(e) {
+		//GetFile
+		var file = e.target.files[0];
+		
+		//Create a storage ref
+		var storageRef = firebase.storage().ref('sweet_gifs/' + file.name);
+		
+		// Upload file
+		var task = storageRef.put(file);
+		
+		//Update progress bar
+		task.on('state_changed',
+			   
+			   function progress(snapshot) {
+					var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+			uploader.value = percentage;
+			
+				},
+			   
+			   function error(err) {
+			
+				},
+				
+				function complete() {
+			
+				}
+		);
+});
+	
 </script>
 </body>
 
